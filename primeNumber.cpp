@@ -1,3 +1,9 @@
+/*
+* Using Eratosthenes's Sieve
+* Time Complexity O(n log log n)
+* Here the number of iteration O(n) + Summation of n/p; where p is prime number and n>=p
+* From Merten's Second Theorem, Summation of n/p = log log n + O(1)
+*/
 //--------------------------Generate Prime Numbers-----------------------------------
 void prime()
 {
@@ -31,6 +37,9 @@ void prime()
 
 
 //---------------------------Test a number is prime or not---------------------------
+/*
+* Time Complexity O(squere root of n)
+*/
 
 bool primeTest(int n)
 {
