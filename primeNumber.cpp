@@ -1,10 +1,32 @@
+
+//---------------------------Test a number is prime or not----------------------------------------
+/*
+* Time Complexity O(squere root of n)
+*/
+
+bool primeTest(int n)
+{
+    if(n<2) return false;
+    int limit = sqrt(n);
+    for(int i=2;i<=limit;i++)
+    {
+        if(n%i==0)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+
 /*
 * Using Eratosthenes's Sieve
 * Time Complexity O(n log log n)
 * Here the number of iteration O(n) + Summation of n/p; where p is prime number and n>=p
 * From Merten's Second Theorem, Summation of n/p = log log n + O(1)
 */
-//--------------------------Generate Prime Numbers-----------------------------------
+//-----------------------------------Generate Prime Numbers----------------------------------------
 void prime()
 {
     int range=100001;
@@ -33,26 +55,39 @@ void prime()
     }
 }
 
-//-----------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------
 
 
-//---------------------------Test a number is prime or not---------------------------
-/*
-* Time Complexity O(squere root of n)
-*/
+//---------------------------------------Prime Factorization----------------------------------------
 
-bool primeTest(int n)
+void primeFactorization(int n)
 {
-    if(n<2) return false;
-    int limit = sqrt(n);
-    for(int i=2;i<=limit;i++)
+    int range=100001;
+    int primes[range];
+    int primeFactor[range];
+    for(int i=2;i<range;i++)
     {
-        if(n%i==0)
+        primes[i]=1;
+    }
+    for(int i=2;i<range;i++)
+    {
+        if(primes[i])
         {
-            return false;
+            primeFactor[i]=i;
+            for(int j=2;i*j<range;j++)
+            {
+                primes[i*j]=0;
+                if(primeFactor[i*j]==0)
+                {
+                    primeFactor[i*j]=i;
+                }
+            }
         }
     }
-    return true;
+    while(n!=1)
+    {
+        cout << primeFactor[n] << endl;
+        n/=primeFactor[n];
+    }
 }
-
 
