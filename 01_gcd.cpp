@@ -1,5 +1,6 @@
-///Time complexity O(logn ab)
+
 /*
+* gcd
 * Initialy it start with (a,b) 
 * Then (b,r) where r=a%b
 * Then (b,r) where r=b%r
@@ -7,6 +8,7 @@
 * Here b*r < 1/2(a*b)
 * That means the product of two numbers in the function decrease by half every time.
 */
+///Time complexity O(logn ab)
 
 int gcd(int a, int b)
 {
