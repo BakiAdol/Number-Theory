@@ -1,0 +1,8 @@
+Divisibility Theorem :
+
+T 01 : If a | b and b | c then a | c 
+       Proof : b = xa, c = yb ; here x and y some integer
+               So, c = yxa
+               =>  c = a(xy)
+               =>  a | c (prove)
+                   
