@@ -1,4 +1,4 @@
-Statement : "There are infinite primely many primes"
+Statement : "There are infinitrly many primes"
 Proof by conduction:
   Let's some list of primes p1,p2,p3,p4....pn
   Now P = p1*p2*p3*p4*...pn + 1
