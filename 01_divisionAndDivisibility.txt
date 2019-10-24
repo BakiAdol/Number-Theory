@@ -4,7 +4,7 @@ Theorem 01 : If a|b and b|c then a|c
        Proof : b = xa, c = yb ; here x and y some integer
                So, c = yxa
                =>  c = a(xy)
-               =>  a|c (prove)
+               =>  a|c
  
 Theorem 02 : If d|a and d|b then d|(xa+yb) heare all are integer
        Proof : a = ed, b=fd
@@ -12,4 +12,10 @@ Theorem 02 : If d|a and d|b then d|(xa+yb) heare all are integer
                => xa+yb=d(xe+fy)
                => d|(xa+yb)
     
-Theorem 03 :
+Theorem 03 : a|b if and only if ac|bc
+       Proof : b = ad
+            => bc = cad
+            => bc = ac(d)
+    
+Theorem 04 : Every positive composit integer n is a product of prime numbers.
+       This is Fandamental Theorem of Arithmetic(FTA)
