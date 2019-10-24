@@ -1,8 +1,15 @@
 Divisibility Theorem :
 
-T 01 : If a | b and b | c then a | c 
+Theorem 01 : If a|b and b|c then a|c 
        Proof : b = xa, c = yb ; here x and y some integer
                So, c = yxa
                =>  c = a(xy)
-               =>  a | c (prove)
-                   
+               =>  a|c (prove)
+ 
+Theorem 02 : If d|a and d|b then d|(xa+yb) heare all are integer
+       Proof : a = ed, b=fd
+              So, xa+yb=xed+yfd
+               => xa+yb=d(xe+fy)
+               => d|(xa+yb)
+    
+Theorem 03 :
