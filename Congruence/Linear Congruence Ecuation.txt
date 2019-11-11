@@ -1,0 +1,1 @@
+Fermat's Little Theorem : https://brilliant.org/wiki/fermats-little-theorem/#primality-testing-and-the-converse
