@@ -9,3 +9,17 @@ int bigMod(int num, int power, int mod)
     return v;
 }
 
+// more faster
+#define ll long long
+
+ll bigMod(ll num, ll base, ll mod)
+{
+    ll res=1;
+    while(base>0)
+    {
+        if(base&1) res=(res*num)%mod;
+        base >>= 1;
+        num=(num*num)%mod;
+    }
+    return res;
+}
