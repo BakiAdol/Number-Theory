@@ -57,6 +57,37 @@ void prime()
 
 //--------------------------------------------------------------------------------------------------
 
+///------------------------------------------ Optimeze seive ---------------------------------------
+void prime()
+{
+	/**
+	 * 
+	 *  -> only 2 is even number that is prime, so we check only odd numbers
+	 *  -> Suppose We check for odd=3, so next cut number is odd*2=6, here 6 is even
+	 * 	   so it's completely unnecessary. so we start tmp=odd, odd=tmp*tmp and increase
+	 *     odd+=tmp*2, then we get every time odd number.
+	 * 
+	 * */
+	
+	long long int range=1000001;
+	bool check[range];
+	vector<int> primes;
+	
+	primes.push_back(2);
+	
+	for(long long int i=3;i<range;i+=2)
+	{
+		if(check[i]==0)
+		{
+			primes.push_back(i);
+			
+			for(long long int j=i*i;j<range;j+=i*2) check[j]=1;
+		}
+	}
+	
+	for(int i=0;i<10;i++) cout << primes[i] << endl;
+}
+///-------------------------------------------------------------------------------------------------
 
 //---------------------------------------Prime Factorization----------------------------------------
 
