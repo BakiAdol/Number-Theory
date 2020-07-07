@@ -5,3 +5,5 @@
    n = 100 ; d=[2,4,5,10] ; 2,5 both prime
    n= 437 ; d=[19] ; 19 is prime
    n= 909 ; d=[3,9] ; 3 is prime
+
+-> for any integer there can be at most one prime divisor after it's square root
