@@ -1,18 +1,27 @@
 Divisibility Theorem :
 
-Theorem 01 : If a|b and b|c then a|c 
+Theorem 01 : For any integer a and b with b>0 there exist two integer q and r such that
+	a = q.b + r; 0 <= r < b where q is quotient and r is reminder
+	Ex. 9 = 2 * 4 + 1
+
+Theorem 02 : If a|b and b|c then a|c 
        Proof : b = xa, c = yb ; here x and y some integer
                So, c = yxa
                =>  c = a(xy)
                =>  a|c
  
-Theorem 02 : If d|a and d|b then d|(xa+yb) heare all are integer
+Theorem 03 : If d|a and d|b then d|(xa+yb) heare all are integer
        Proof : a = ed, b=fd
               So, xa+yb=xed+yfd
                => xa+yb=d(xe+fy)
                => d|(xa+yb)
+               
+       Ex. a = 9, b = 12, d = 3
+           => (x*9 + y*12) % d = 0
+           => (1*9 + 2*12) % 3 = 0
+           => (3*9 + 4*12) % 3 = 0
     
-Theorem 03 : a|b if and only if ac|bc
+Theorem 04 : a|b if and only if ac|bc
        Proof : b = ad
             => bc = cad
             => bc = ac(d)
