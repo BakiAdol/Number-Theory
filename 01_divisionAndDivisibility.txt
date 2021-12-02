@@ -25,6 +25,10 @@ Theorem 04 : a|b if and only if ac|bc
        Proof : b = ad
             => bc = cad
             => bc = ac(d)
+	    
+Theorem 05 : If c is common divisor of a and b, and also d is a common divisor or a and b then
+	     c is a divisor or d iff d>c
+	Ex. a = 12, b = 16, c = 4, d = 2; d % c = 0
     
-Theorem 04 : Every positive composit integer n is a product of prime numbers.
+Theorem 06 : Every positive composit integer n is a product of prime numbers.
        This is Fandamental Theorem of Arithmetic(FTA)
