@@ -21,18 +21,19 @@ vector<int> primes;
 void primeGenerate()
 {
     bool isPrime[105];
+    for(int i=0;i<105;i++) isPrime[i]=1;
     for(int i=2;i<101;i++)
     {
-        if(isPrime[i]==0)
+        if(isPrime[i])
         {
             for(int j=2;i*j<101;j++)
             {
-                isPrime[i*j]=1;
+                isPrime[i*j]=0;
             }
         }
     }
     for(int i=2;i<101;i++)
-    if(isPrime[i]==0) 
+    if(isPrime[i]) 
     primes.push_back(i);
 }
 
@@ -42,9 +43,11 @@ void primeGenerateOptimized()
 {
     primes.push_back(2);
     bool isPrime[105];
-    for(int i=3;i<101;i+=2)
+    for(int i=0;i<105;i++) isPrime[i]=1;
+    for(int i=3;i*i<101;i+=2)
     {
-        if(isPrime[i]==0)
+        // if a numnber is composite then there will be a divisor less or equal to sqrt(n) 
+        if(isPrime[i])
         {
             // start erasing from i*i, because all numbers between
             // i and i*i already erased
@@ -53,12 +56,12 @@ void primeGenerateOptimized()
                 // i and j both are odd now
                 // so if we add i with j then j will be even (odd+odd=even)
                 // se we add i+i with j then j will be odd (odd + (odd+odd=even)) 
-                isPrime[j]=1;
+                isPrime[j]=0;
             }
         }
     }
     for(int i=3;i<101;i+=2)
-    if(isPrime[i]==0) 
+    if(isPrime[i]) 
     primes.push_back(i);
 }
 
