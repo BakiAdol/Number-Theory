@@ -1,53 +1,73 @@
 #include <bits/stdc++.h>
 
 using namespace std;
+/**
+ * Generate all primes between L to R
+ * L<=R and R<10^12 and R-L = 10^6
+ */
 
-#define mx 31700
-vector<int> primes;
-
-void generatePrimes()
+vector<long> primes;
+void primeGenerate() // generate prime  less or equal to sqrt(10^12)
 {
-    bool mark[mx];
-    memset(mark,0,sizeof(mark));
-    for(int i=3;i<mx;i+=2)
+    int maxlen = 1e6+5;
+    bool isPrime[maxlen];
+
+    for(int i=0;i<maxlen;i++) isPrime[i]=true;
+
+    primes.push_back(2);
+
+    for(int i=3;i*i<maxlen;i++)
     {
-        if(!mark[i])
+        if(isPrime[i])
         {
-            for(int j=i*i;j<=mx;j+=i)
+            for(int j=i*i;j<maxlen;j+=i*2)
             {
-                mark[j]=1;
+                isPrime[j]=false;
             }
         }
     }
-    primes.push_back(2);
-    for(int i=3;i<mx;i+=2) if(!mark[i]) primes.push_back(i);
+
+    for(int i=3;i<maxlen;i+=2)
+    if(isPrime[i])
+    primes.push_back(i);
 }
 
-void segmentSevive(long long start, long long endd)
+vector<long long> segPrimes;
+// segmented seive
+void segmentedSeive(long long L, long long R)
 {
-    int sz=endd-start+1;
-    bool mark[sz];
-    memset(mark,0,sizeof(mark));
-    if(start==1) mark[0]=1;
-    for(int i=0;primes[i]*primes[i]<=endd;i++)
-    {
-        long long p=primes[i];
-        long long startNum=(start/p)*p;
-        if(startNum<start) startNum+=p;
+    long long maxlen = R-L+5;
+    bool isPrime[maxlen];
+    for(long long i=0;i<maxlen;i++) isPrime[i]=true;
 
-        for(long long ind=startNum;ind<=endd;ind+=p)
+    for(int i=0;i<(int)primes.size() and primes[i]*primes[i]<=R;i++)
+    {
+        long long p = primes[i];
+        long long num = (L/p)*p;
+        if(num<L) num+=p;
+
+        for(long long numl = num; numl<=R;numl+=p)
         {
-            mark[ind-start]=1;
+            isPrime[numl-L]=false;
         }
-        if(startNum==p) mark[startNum-start]=0;
+
+        if(p==num) isPrime[p-L]=true;
     }
-    for(int i=0;i<sz;i++) if(!mark[i]) cout << start+i << endl;
+    for(long long pos=max((long long)2,L);pos<R;pos++)
+    if(isPrime[pos-L])
+    segPrimes.push_back(pos);
 }
 
 int main()
 {
-    generatePrimes();
-    segmentSevive(50,100);
+    primeGenerate();
+
+    long long L = 1e12;
+    long long R = 1e12+1e3;
+
+    segmentedSeive(L,R);
+
+    for(auto x:segPrimes) cout <<x << " ";
+    
     return 0;
 }
-
